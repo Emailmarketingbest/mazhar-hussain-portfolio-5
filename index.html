@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mazher Hussain | Test Lead · Data Migration &amp; Release Assurance</title>
+  <meta name="description" content="Mazher Hussain — 14+ years in IT &amp; QA delivery, 5-person QA team leadership, government and banking transformations, cloud migration and payment integrations to UAT and release readiness." />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#02060d] text-white selection:bg-teal-500/30 selection:text-teal-200">
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="progressBar" class="progress-bar" aria-hidden="true"></div>
+
+  <!-- Subtle Film Grain -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Fixed Bottom-Left Scene Counter -->
+  <div class="fixed left-4 bottom-4 sm:left-7 sm:bottom-6 z-40 flex items-baseline gap-2.5 px-3.5 py-2 rounded-full bg-zinc-950/90 border border-zinc-800 backdrop-blur-md shadow-lg">
+    <span class="font-mono-kicker text-[10px] text-zinc-400">Scene</span>
+    <span id="sceneCounterNum" class="font-mono-kicker text-xs sm:text-sm font-bold text-teal-400">01</span>
+    <span id="sceneCounterLabel" class="hidden sm:inline font-mono-kicker text-[10px] text-zinc-500">/ Hero</span>
+  </div>
+
+  
+
+  <!-- ========================================================================= -->
+  <!-- EXECUTIVE HEADER & RESPONSIVE NAVIGATION (Fixes Defect 1 at 404px & mobile)-->
+  <!-- ========================================================================= -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-[#02060d]/92 backdrop-blur-md border-b border-white/10">
+    <div class="w-full max-w-7xl mx-auto px-3 sm:px-8 h-16 flex items-center justify-between gap-2 overflow-hidden">
+      <!-- Signature Monogram & Name -->
+      <a href="#hero" class="flex items-center gap-2.5 group min-w-0 flex-shrink">
+        <span class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white text-black flex items-center justify-center font-display font-black text-xs sm:text-sm tracking-tighter group-hover:bg-teal-400 transition-colors shrink-0">MH</span>
+        <div class="leading-none min-w-0">
+          <span class="font-display font-bold text-xs sm:text-sm tracking-wide text-white block truncate">Mazher Hussain</span>
+          <span class="hidden sm:inline font-mono-kicker text-[9px] text-teal-400">Wellington, NZ · Global Delivery</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Primary Navigation" class="hidden xl:flex items-center gap-4 font-mono-kicker text-[10px] text-zinc-300">
+        <a href="#hero" class="hover:text-teal-300 transition-colors">01 Hero</a>
+        <a href="#work" class="hover:text-teal-300 transition-colors">02 Selected Work</a>
+        <a href="#global-footprint" class="hover:text-teal-300 transition-colors">03 Global (9 Countries)</a>
+        <a href="#timeline" class="hover:text-teal-300 transition-colors">04 Career Evolution</a>
+        <a href="#qa-lab" class="hover:text-teal-300 transition-colors">05 QA Lab</a>
+        <a href="#craft" class="hover:text-teal-300 transition-colors">06 3D Governance</a>
+        <a href="#contact" class="hover:text-teal-300 transition-colors">07 Contact</a>
+      </nav>
+
+      <!-- Quick Actions + Mobile Menu Button (Defect 1 Fixed: Fits tightly on 390px - 404px) -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button id="openCmdPaletteBtn" type="button" aria-haspopup="dialog" aria-expanded="false" class="px-2.5 sm:px-3 py-1.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 text-[10px] font-mono-kicker text-teal-300 flex items-center gap-1 cursor-pointer transition-all">
+          <span>Search</span>
+          <kbd class="hidden xs:inline px-1 py-0.5 rounded bg-black text-zinc-400 border border-zinc-800 text-[9px]">⌘K</kbd>
+        </button>
+
+        <button type="button" class="download-cv-trigger cursor-pointer hidden md:inline-flex px-3 py-1.5 rounded-full bg-teal-500 hover:bg-teal-400 text-black text-[10px] font-mono-kicker font-bold transition-all">
+          Download CV ↓
+        </button>
+
+        <!-- Mobile Menu Button (<1280px, strictly on-screen) -->
+        <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-controls="mobileNavDrawer" aria-label="Open navigation menu" class="xl:hidden px-2.5 sm:px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700 text-white font-mono-kicker text-[10px] flex items-center gap-1 cursor-pointer">
+          <span id="mobileMenuBtnLabel">Menu ☰</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <nav id="mobileNavDrawer" aria-label="Mobile Navigation" class="hidden xl:hidden bg-zinc-950 border-t border-zinc-800 px-6 py-5 space-y-3">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono-kicker text-xs">
+        <a href="#hero" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">01 · Hero &amp; Bio</a>
+        <a href="#work" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">02 · Selected Work</a>
+        <a href="#global-footprint" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">03 · Global Footprint</a>
+        <a href="#timeline" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">04 · 7-Stage Journey</a>
+        <a href="#qa-lab" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">05 · QA Lab (Simulator)</a>
+        <a href="#craft" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">06 · 3D Governance</a>
+        <a href="#domains" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">07 · Sectors</a>
+        <a href="#contact" class="mobile-nav-link p-2.5 rounded-lg bg-zinc-900 text-zinc-200 hover:text-teal-300">08 · Contact</a>
+      </div>
+      <div class="pt-3 border-t border-zinc-800 flex flex-wrap gap-2">
+        <button type="button" class="download-cv-trigger cursor-pointer px-4 py-2 rounded-lg bg-teal-500 text-black font-mono-kicker text-xs font-bold">Download Executive CV (PDF)</button>
+        <a href="mailto:mazher.khaja313@outlook.co.nz" class="px-4 py-2 rounded-lg bg-white text-black font-mono-kicker text-xs font-bold">Email Mazher Hussain</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========================================================================= -->
+    <!-- SCENE 01: HERO — EXECUTIVE POSITIONING & "SIGNAL TO SIGN-OFF" REVEAL      -->
+    <!-- ========================================================================= -->
+    <section id="hero" data-scene="01" data-scene-name="Hero" class="relative min-h-[92vh] pt-24 pb-14 flex flex-col justify-center px-4 sm:px-8 overflow-hidden">
+      <!-- Ambient Backdrop Glow -->
+      <div class="hero-backdrop-glow" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+        
+        <!-- Left Column: Name, Role, Signal-to-Signoff Checkpoints & Actions -->
+        <div class="lg:col-span-7 space-y-5 text-left">
+          
+          <!-- Recruiter Positioning Kicker -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-teal-950/60 border border-teal-500/30 font-mono-kicker text-[10px] text-teal-300">
+            <span>EXECUTIVE QA &amp; TEST LEADERSHIP</span>
+            <span class="text-zinc-600">·</span>
+            <span>WELLINGTON, NZ · CITIZEN (NZ &amp; AU RIGHTS)</span>
+          </div>
+
+          <!-- Mobile Hero Opening Block (Compact Portrait alongside Name & Role) -->
+          <div class="lg:hidden flex items-start gap-4 pt-1">
+            <div class="mobile-compact-portrait">
+              <img src="mazher-portrait.jpg" alt="Mazher Hussain" />
+            </div>
+            <div class="min-w-0">
+              <h1 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
+                MAZHER HUSSAIN
+              </h1>
+              <p class="font-display font-bold text-base sm:text-lg text-teal-400 mt-1">
+                Test Lead | Data Migration &amp; Release Assurance
+              </p>
+            </div>
+          </div>
+
+          <!-- Desktop Headline (Mazher Hussain as Primary Focal Point) -->
+          <div class="hidden lg:block space-y-1">
+            <h1 class="font-display font-black text-5xl sm:text-6xl xl:text-7xl text-white tracking-tight leading-[0.95]">
+              MAZHER HUSSAIN
+            </h1>
+            <p class="font-display font-black text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-sky-300 to-emerald-300 pt-1">
+              Test Lead | Data Migration &amp; Release Assurance
+            </p>
+          </div>
+
+          <!-- Cinematic Signal to Sign-off Reveal (Validate → Reconcile → Release) -->
+          <div class="pt-1">
+            <div class="signal-track" aria-label="Signal to Sign-off Delivery Sequence">
+              <div class="checkpoint-node seq-node-1">
+                <span class="checkpoint-dot"></span>
+                <span>Validate</span>
+              </div>
+              <span class="checkpoint-arrow">→</span>
+              <div class="checkpoint-node seq-node-2">
+                <span class="checkpoint-dot"></span>
+                <span>Reconcile</span>
+              </div>
+              <span class="checkpoint-arrow">→</span>
+              <div class="checkpoint-node seq-node-3">
+                <span class="checkpoint-dot"></span>
+                <span>Release</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Supporting Line -->
+          <p class="text-base sm:text-lg text-zinc-300 font-medium leading-relaxed max-w-2xl">
+            I lead testing across government and banking transformations, from cloud migration and payment integrations to UAT and release readiness.
+          </p>
+
+          <!-- Dynamic Typewriter Line -->
+          <div class="h-6 flex items-center">
+            <p class="font-mono-kicker text-xs sm:text-sm text-teal-300 font-semibold truncate">
+              <span id="typewriterText">14+ YEARS IN IT &amp; QA DELIVERY · LEADING A 5-PERSON QA TEAM</span><span class="caret" aria-hidden="true"></span>
+            </p>
+          </div>
+
+          <!-- Proof Strip (14+ years · Five-person QA team · Govt & banking delivery) -->
+          <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-950/90 border border-zinc-800 font-mono-kicker text-[11px] text-teal-300 font-bold">
+            <span>14+ years in IT &amp; QA</span>
+            <span class="text-zinc-600">·</span>
+            <span>Five-person QA team leadership</span>
+            <span class="text-zinc-600">·</span>
+            <span>Government &amp; banking delivery</span>
+          </div>
+
+          <!-- Two Clear Actions: View Selected Work & Download CV -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="#work" class="px-6 py-3 rounded-full bg-teal-500 hover:bg-teal-400 text-black font-mono-kicker text-xs font-bold transition-all shadow-lg shadow-teal-500/25 flex items-center gap-2 cursor-pointer">
+              <span>View selected work</span>
+              <span>↓</span>
+            </a>
+            <button type="button" class="download-cv-trigger cursor-pointer px-6 py-3 rounded-full bg-white hover:bg-zinc-200 text-black font-mono-kicker text-xs font-bold transition-all shadow-md flex items-center gap-2">
+              <span>Download CV</span>
+              <span>↓</span>
+            </button>
+          </div>
+
+          <!-- Regular Credentials Row (No floating overlapping ribbon!) -->
+          <div class="pt-2 flex flex-wrap items-center gap-2">
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-950/90 border border-zinc-800 text-[10px] font-mono-kicker text-zinc-300">
+              <img src="NZ-national-security-clearance.png" alt="" class="w-4 h-4 object-contain" />
+              <span>NZ Security Clearance — Confidential (NZSIS)</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-950/90 border border-zinc-800 text-[10px] font-mono-kicker text-zinc-300">
+              <img src="NZ-Police-vetting.png" alt="" class="w-4 h-4 object-contain" />
+              <span>NZ Police Vetting — Previously vetted</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-950/90 border border-zinc-800 text-[10px] font-mono-kicker text-zinc-300">
+              <img src="New-Zealand-citizenship.png" alt="" class="w-4 h-4 object-contain" />
+              <span>NZ Citizen (NZ &amp; AU Work Rights)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (Desktop): Elevated Portrait with Refined Frame & Ambient Glow -->
+        <div class="hidden lg:flex lg:col-span-5 flex-col items-center justify-center">
+          <div class="portrait-frame-wrapper">
+            <div class="portrait-light-sweep"></div>
+            <div class="portrait-inner">
+              <img src="mazher-portrait.jpg" alt="Mazher Hussain — Test Lead | Data Migration &amp; Release Assurance" class="portrait-img" />
+              <div class="portrait-vignette"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Below Opening Block: Stat Cards & Core Capability Pills -->
+      <div class="max-w-7xl mx-auto w-full mt-12 pt-8 border-t border-zinc-900 space-y-6">
+        
+        <!-- 4 KPI Stat Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="p-3.5 rounded-xl bg-zinc-950/90 border border-zinc-800">
+            <div class="font-display font-black text-3xl text-sky-400">14+</div>
+            <div class="font-mono-kicker text-[10px] text-zinc-300 mt-1">Years in IT &amp; QA Delivery</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-zinc-950/90 border border-zinc-800">
+            <div class="font-display font-black text-3xl text-teal-400">11+</div>
+            <div class="font-mono-kicker text-[10px] text-zinc-300 mt-1">Major Programmes Delivered</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-zinc-950/90 border border-zinc-800">
+            <div class="font-display font-black text-3xl text-sky-400">5+</div>
+            <div class="font-mono-kicker text-[10px] text-zinc-300 mt-1">Industry Verticals</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-zinc-950/90 border border-zinc-800">
+            <div class="font-display font-black text-3xl text-teal-400">9</div>
+            <div class="font-mono-kicker text-[10px] text-zinc-300 mt-1">Countries (Global Hubs → NZ)</div>
+          </div>
+        </div>
+
+        <!-- 6 Core Capability Pills -->
+        <div class="space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <span class="font-mono-kicker text-[10px] text-zinc-400">CORE CAPABILITY PILLARS (CLICK TO INSPECT):</span>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-pillar="WEB" class="pillar-btn px-3 py-1 rounded-md font-mono-kicker text-[10px] bg-teal-500/20 border border-teal-400 text-teal-200 cursor-pointer transition-all">WEB</button>
+              <button type="button" data-pillar="MOBILE" class="pillar-btn px-3 py-1 rounded-md font-mono-kicker text-[10px] bg-zinc-950/90 border border-zinc-800 text-zinc-300 cursor-pointer transition-all">MOBILE</button>
+              <button type="button" data-pillar="AUTOMATION" class="pillar-btn px-3 py-1 rounded-md font-mono-kicker text-[10px] bg-zinc-950/90 border border-zinc-800 text-zinc-300 cursor-pointer transition-all">AUTOMATION</button>
+              <button type="button" data-pillar="API" class="pillar-btn px-3 py-1 rounded-md font-mono-kicker text-[10px] bg-zinc-950/90 border border-zinc-800 text-zinc-300 cursor-pointer transition-all">API</button>
+              <button type="button" data-pillar="DATA" class="pillar-btn px-3 py-1 rounded-md font-mono-kicker text-[10px] bg-zinc-950/90 border border-zinc-800 text-zinc-300 cursor-pointer transition-all">DATA</button>
+              <button type="button" data-pillar="CLOUD" class="pillar-btn px-3 py-1 rounded-md font-mono-kicker text-[10px] bg-zinc-950/90 border border-zinc-800 text-zinc-300 cursor-pointer transition-all">CLOUD</button>
+            </div>
+          </div>
+
+          <div id="pillarReadout" class="p-3.5 rounded-xl bg-zinc-950 border border-teal-500/30">
+            <div id="pillarTitle" class="font-mono-kicker text-[11px] text-teal-400 font-bold">WEB &amp; DIGITAL PORTALS</div>
+            <p id="pillarText" class="text-xs text-zinc-300 mt-1">End-to-end Web &amp; Portal validation (.NET 10, NZeTA Web 3DS 2.0 Datacom integration, EPBR WCAG 2.1 AA, Great Walks Booking Portal).</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- OFFICIAL ORGANISATION LOGOS & TRUST STRIP (Dark Executive Presentation)  -->
+    <!-- ========================================================================= -->
+    <section class="py-14 border-t border-zinc-900 bg-gradient-to-b from-[#02060d] via-[#040a16] to-[#02060d]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <p class="font-mono-kicker text-xs text-teal-400 font-bold uppercase tracking-wider">// OFFICIAL ORGANISATIONS &amp; PROGRAMMES DELIVERED</p>
+            <h3 class="font-display font-black text-xl sm:text-2xl text-white mt-1">Trusted Across New Zealand Public Sector &amp; Banking</h3>
+          </div>
+          <span class="font-mono-kicker text-[10px] text-zinc-400 bg-zinc-900/90 border border-zinc-800 px-3 py-1.5 rounded-full">
+            Direct Engagements &amp; One NZ Government Client Streams
+          </span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+          <!-- 1. MBIE (White Logo on Dark Card) -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="MBIE.png" alt="MBIE" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.08)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">MBIE</span>
+              <span class="font-mono-kicker text-[9px] text-teal-400 block mt-0.5">Innovation &amp; Employment</span>
+            </div>
+          </div>
+
+          <!-- 2. One NZ -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="One-NZ.png" alt="One NZ" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(34,197,94,0.15)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">ONE NZ</span>
+              <span class="font-mono-kicker text-[9px] text-teal-400 block mt-0.5">Enterprise Mobility</span>
+            </div>
+          </div>
+
+          <!-- 3. DOC -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="Department-of-Conservation.png" alt="Department of Conservation" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.08)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">DOC</span>
+              <span class="font-mono-kicker text-[9px] text-teal-400 block mt-0.5">Conservation ERP</span>
+            </div>
+          </div>
+
+          <!-- 4. Co-operative Bank -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="The-Co-operative-Bank.png" alt="The Co-operative Bank" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(16,185,129,0.15)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">CO-OP BANK</span>
+              <span class="font-mono-kicker text-[9px] text-teal-400 block mt-0.5">Core Banking QA</span>
+            </div>
+          </div>
+
+          <!-- 5. Victoria University of Wellington -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="Victoria-University-of-Wellington.png" alt="Victoria University of Wellington" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.08)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">VUW</span>
+              <span class="font-mono-kicker text-[9px] text-teal-400 block mt-0.5">Statutory SDR Assurance</span>
+            </div>
+          </div>
+
+          <!-- 6. NZDF -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="New-Zealand-Defence-Force.png" alt="New Zealand Defence Force" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.08)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">NZDF</span>
+              <span class="font-mono-kicker text-[9px] text-zinc-400 block mt-0.5">Via One NZ</span>
+            </div>
+          </div>
+
+          <!-- 7. NZ Police -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="New-Zealand-Police.png" alt="New Zealand Police" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.08)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">NZ POLICE</span>
+              <span class="font-mono-kicker text-[9px] text-zinc-400 block mt-0.5">Via One NZ</span>
+            </div>
+          </div>
+
+          <!-- 8. MSD (White Logo on Dark Card) -->
+          <div class="group flex flex-col items-center justify-between p-3.5 rounded-2xl bg-zinc-950/80 border border-zinc-800 hover:border-teal-500/50 hover:bg-zinc-900/80 transition-all shadow-lg">
+            <div class="w-full h-14 flex items-center justify-center p-1">
+              <img src="Ministry-of-Social-Development.png" alt="Ministry of Social Development" class="max-h-12 max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.08)] transition-transform group-hover:scale-105" />
+            </div>
+            <div class="text-center mt-3 pt-2 border-t border-zinc-800/80 w-full">
+              <span class="font-display font-black text-xs text-white tracking-wide block uppercase">MSD</span>
+              <span class="font-mono-kicker text-[9px] text-zinc-400 block mt-0.5">Via One NZ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 02: SELECTED WORK — 3 FEATURED PROJECTS + CASE STUDIES (Right After)-->
+    <!-- ========================================================================= -->
+    <section id="work" data-scene="02" data-scene-name="Selected Work" class="py-20 lg:py-24 border-t border-zinc-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
+        
+        <!-- Section Header & Filter Bar -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-zinc-800">
+          <div>
+            <p class="font-mono-kicker text-xs text-teal-400 font-bold">Scene 02 · High-Stakes Delivery Evidence</p>
+            <h2 class="font-display font-black text-4xl sm:text-6xl text-white mt-2">
+              SELECTED WORK.
+            </h2>
+            <p class="text-zinc-400 text-sm mt-1 max-w-xl">
+              Three featured transformations proving leadership, SQL data migration assurance, and enterprise cutover governance—followed by technical deep dives.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2" id="workFilterBar" role="tablist" aria-label="Filter case studies by category">
+            <button type="button" data-filter="all" class="work-filter-btn px-4 py-2 rounded-full font-mono-kicker text-xs bg-white text-black font-bold cursor-pointer transition-all">All (6)</button>
+            <button type="button" data-filter="payments" class="work-filter-btn px-4 py-2 rounded-full font-mono-kicker text-xs bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-teal-400 cursor-pointer transition-all">Payments &amp; 3DS</button>
+            <button type="button" data-filter="migration" class="work-filter-btn px-4 py-2 rounded-full font-mono-kicker text-xs bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-teal-400 cursor-pointer transition-all">Cloud &amp; Data Migration</button>
+            <button type="button" data-filter="enterprise" class="work-filter-btn px-4 py-2 rounded-full font-mono-kicker text-xs bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-teal-400 cursor-pointer transition-all">MDM, ERP &amp; Accessibility</button>
+          </div>
+        </div>
+
+        <!-- 3 Featured Projects Grid (NZeTA PayNow, IPONZ SaaS, One NZ Mobility) -->
+        <div id="featuredWorkContainer" class="space-y-8">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Secondary Filterable Case Studies Container -->
+        <div class="pt-6 border-t border-zinc-900">
+          <h3 class="font-mono-kicker text-xs text-zinc-400 font-bold mb-4 uppercase tracking-wider">// Additional Enterprise Case Studies</h3>
+          <div id="workListContainer" class="divide-y divide-zinc-900">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 03: GLOBAL EXPERIENCE ACROSS 9 COUNTRIES (Moved below Work)          -->
+    <!-- ========================================================================= -->
+    <section id="global-footprint" data-scene="03" data-scene-name="Global Footprint" class="py-24 lg:py-28 border-t border-zinc-900 bg-gradient-to-b from-[#02060d] via-[#061224] to-[#02060d]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div>
+            <p class="font-mono-kicker text-xs text-sky-400 font-bold uppercase tracking-wider">// International Travel &amp; Delivery Corridor · 9 Countries</p>
+            <h2 class="font-display font-black text-4xl sm:text-6xl text-white mt-2">
+              GLOBAL EXPERIENCE.<br /><span class="text-teal-400">LOCAL AUTHORITY IN NZ.</span>
+            </h2>
+          </div>
+          <p class="max-w-xl text-sm sm:text-base text-zinc-300 leading-relaxed">
+            My career story started in <strong>Saudi Arabia</strong>, spanned international work and project travel across <strong>7 global technology hubs</strong> (<strong>USA, UAE, Egypt, Qatar, Oman, Singapore, and Malaysia</strong>), and anchored in <strong>Wellington, New Zealand</strong> as my permanent home and destination.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Left: Interactive SVG World Map with Glowing Arcs & Active Readout -->
+          <div class="lg:col-span-7 p-4 sm:p-6 rounded-2xl bg-zinc-950/90 border border-sky-500/30 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <span class="font-mono-kicker text-[10px] text-sky-400 font-bold">INTERACTIVE WORLD DELIVERY CORRIDOR</span>
+              <span class="font-mono-kicker text-[10px] text-zinc-400">Click any country flag to inspect details</span>
+            </div>
+
+            <svg viewBox="0 0 820 360" class="w-full h-auto rounded-xl bg-[#030914] border border-zinc-900" role="img" aria-label="Global career map from Saudi Arabia across 7 international countries to New Zealand">
+              <!-- Subtle Lat/Long Grid -->
+              <g stroke="rgba(56,189,248,0.08)" stroke-width="1">
+                <line x1="0" y1="90" x2="820" y2="90" />
+                <line x1="0" y1="180" x2="820" y2="180" />
+                <line x1="0" y1="270" x2="820" y2="270" />
+                <line x1="205" y1="0" x2="205" y2="360" />
+                <line x1="410" y1="0" x2="410" y2="360" />
+                <line x1="615" y1="0" x2="615" y2="360" />
+              </g>
+
+              <!-- Stylized Continental Silhouettes -->
+              <g fill="#0b172a" opacity="0.8">
+                <!-- North America -->
+                <path d="M 120 70 L 250 65 L 290 120 L 220 180 L 170 160 L 110 110 Z" />
+                <!-- South America -->
+                <path d="M 230 190 L 290 200 L 280 290 L 240 310 L 220 230 Z" />
+                <!-- Europe & Middle East -->
+                <path d="M 400 80 L 480 70 L 510 130 L 470 170 L 420 140 Z" />
+                <!-- Africa -->
+                <path d="M 410 150 L 490 160 L 480 270 L 430 250 L 390 190 Z" />
+                <!-- Asia -->
+                <path d="M 500 70 L 680 75 L 700 170 L 610 200 L 510 140 Z" />
+                <!-- Australia & New Zealand -->
+                <path d="M 660 230 L 750 240 L 740 310 L 660 300 Z" />
+                <circle cx="795" cy="320" r="14" fill="#0f2942" />
+              </g>
+
+              <!-- Glowing Flight Arcs from Saudi Arabia (Start) -> 7 International Hubs -> New Zealand (Destination) -->
+              <g fill="none" stroke="#38bdf8" stroke-width="1.8" opacity="0.75">
+                <path d="M 485 165 Q 320 80 185 130" class="flight-arc" stroke="#38bdf8" />
+                <path d="M 485 165 Q 495 160 515 160" class="flight-arc" stroke="#14b8a6" />
+                <path d="M 485 165 Q 460 160 445 160" class="flight-arc" stroke="#38bdf8" />
+                <path d="M 485 165 Q 500 155 510 158" class="flight-arc" stroke="#14b8a6" />
+                <path d="M 485 165 Q 510 175 525 175" class="flight-arc" stroke="#38bdf8" />
+                <path d="M 485 165 Q 560 190 620 215" class="flight-arc" stroke="#14b8a6" />
+                <path d="M 485 165 Q 555 180 610 210" class="flight-arc" stroke="#38bdf8" />
+                <path d="M 620 215 Q 710 260 795 320" class="flight-arc" stroke="#5eead4" stroke-width="2.5" />
+              </g>
+
+              <!-- Career Location Pins -->
+              <g>
+                <!-- 01. Saudi Arabia (Start) -->
+                <circle id="map-pin-SA" cx="485" cy="165" r="7" fill="#f59e0b" class="map-pin-circle transition-all">
+                  <animate attributeName="r" values="6;8.5;6" dur="2.4s" repeatCount="indefinite" />
+                </circle>
+                <text x="485" y="152" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">01 · SAUDI ARABIA (START)</text>
+
+                <!-- 02. USA -->
+                <circle id="map-pin-US" cx="185" cy="130" r="5" fill="#38bdf8" class="map-pin-circle" />
+                <text x="185" y="120" fill="#bae6fd" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">USA</text>
+
+                <!-- 03. UAE -->
+                <circle id="map-pin-AE" cx="515" cy="160" r="4.5" fill="#38bdf8" class="map-pin-circle" />
+                <text x="515" y="150" fill="#bae6fd" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">UAE</text>
+
+                <!-- 04. Egypt -->
+                <circle id="map-pin-EG" cx="445" cy="160" r="4.5" fill="#38bdf8" class="map-pin-circle" />
+                <text x="445" y="150" fill="#bae6fd" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">EGYPT</text>
+
+                <!-- 05. Qatar -->
+                <circle id="map-pin-QA" cx="510" cy="158" r="4.5" fill="#38bdf8" class="map-pin-circle" />
+                <text x="510" y="148" fill="#bae6fd" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">QATAR</text>
+
+                <!-- 06. Oman -->
+                <circle id="map-pin-OM" cx="525" cy="175" r="4.5" fill="#38bdf8" class="map-pin-circle" />
+                <text x="525" y="188" fill="#bae6fd" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">OMAN</text>
+
+                <!-- 07. Singapore -->
+                <circle id="map-pin-SG" cx="620" cy="215" r="5" fill="#14b8a6" class="map-pin-circle" />
+                <text x="620" y="206" fill="#99f6e4" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">SINGAPORE</text>
+
+                <!-- 08. Malaysia -->
+                <circle id="map-pin-MY" cx="610" cy="210" r="4.5" fill="#38bdf8" class="map-pin-circle" />
+                <text x="610" y="224" fill="#bae6fd" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">MALAYSIA</text>
+
+                <!-- 09. New Zealand (Destination & Base) -->
+                <circle id="map-pin-NZ" cx="795" cy="320" r="8" fill="#14b8a6" class="map-pin-circle">
+                  <animate attributeName="r" values="7;10;7" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <text x="795" y="306" fill="#5eead4" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">NEW ZEALAND (HOME)</text>
+              </g>
+            </svg>
+
+            <!-- Active Country Detail Readout with Flag -->
+            <div id="countryDetailBox" class="p-4 rounded-xl bg-black/90 border border-zinc-800 flex items-start gap-4">
+              <img id="countryDetailFlagImg" src="09-New-Zealand.png" alt="Country Flag" class="w-12 h-8 object-contain rounded shadow shrink-0 mt-0.5 border border-zinc-700" />
+              <div class="min-w-0">
+                <div id="countryDetailTitle" class="font-mono-kicker text-xs text-teal-300 font-bold uppercase tracking-wider">
+                  NEW ZEALAND — CAREER DESTINATION &amp; HOME BASE (2016 – PRESENT)
+                </div>
+                <p id="countryDetailText" class="text-xs text-zinc-300 mt-1 leading-relaxed">
+                  Wellington, New Zealand: Test Lead, Data Migration Lead &amp; QA Delivery Lead across MBIE, One NZ (NZDF, MSD, NZ Police), The Co-operative Bank, DOC, and Victoria University of Wellington.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Career Start, Destination & The 7 International Countries with REAL PNG FLAGS -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <!-- Start & Destination Flag Controls -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Saudi Arabia Card -->
+              <button type="button" data-country="SA" class="country-card-btn p-4 rounded-xl bg-amber-950/25 border border-amber-500/40 hover:border-amber-400 text-left cursor-pointer transition-all ring-0">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2.5">
+                    <img src="01-Saudi-Arabia.png" alt="Saudi Arabia Flag" class="w-9 h-6 object-contain rounded shadow shrink-0" />
+                    <span class="font-display font-black text-base text-white">SA</span>
+                  </div>
+                  <span class="font-mono-kicker text-[9px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold shrink-0">CAREER START</span>
+                </div>
+                <div class="font-display font-black text-lg text-white mt-2">SAUDI ARABIA</div>
+                <p class="text-[11px] text-zinc-300 mt-0.5">Origin of enterprise systems engineering, infrastructure &amp; consulting timeline.</p>
+              </button>
+
+              <!-- New Zealand Card -->
+              <button type="button" data-country="NZ" class="country-card-btn p-4 rounded-xl bg-teal-950/35 border border-teal-400/60 hover:border-teal-300 text-left cursor-pointer transition-all ring-2 ring-teal-400">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2.5">
+                    <img src="09-New-Zealand.png" alt="New Zealand Flag" class="w-9 h-6 object-contain rounded shadow shrink-0" />
+                    <span class="font-display font-black text-base text-teal-300">NZ</span>
+                  </div>
+                  <span class="font-mono-kicker text-[9px] px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-bold shrink-0">DESTINATION · HOME</span>
+                </div>
+                <div class="font-display font-black text-lg text-white mt-2">NEW ZEALAND</div>
+                <p class="text-[11px] text-zinc-300 mt-0.5">Wellington HQ — Government, Defence, Banking &amp; Cloud Transformation.</p>
+              </button>
+            </div>
+
+            <!-- The 7 International Countries Array with Real PNG Flags -->
+            <div class="p-5 rounded-2xl bg-zinc-950/90 border border-zinc-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-mono-kicker text-[10px] text-sky-400 font-bold uppercase tracking-wider">GLOBAL EXPERIENCE ACROSS (7 INTERNATIONAL HUBS)</span>
+                <span class="font-mono-kicker text-[9px] text-zinc-500">Click country to inspect</span>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="intlCountriesGrid">
+                <!-- USA -->
+                <button type="button" data-country="US" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="02-United-States.png" alt="USA Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">US</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">USA</span>
+                </button>
+
+                <!-- UAE -->
+                <button type="button" data-country="AE" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="03-United-Arab-Emirates.png" alt="UAE Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">AE</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">UAE</span>
+                </button>
+
+                <!-- Egypt -->
+                <button type="button" data-country="EG" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="04-Egypt.png" alt="Egypt Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">EG</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">EGYPT</span>
+                </button>
+
+                <!-- Qatar -->
+                <button type="button" data-country="QA" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="05-Qatar.png" alt="Qatar Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">QA</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">QATAR</span>
+                </button>
+
+                <!-- Oman -->
+                <button type="button" data-country="OM" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="06-Oman.png" alt="Oman Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">OM</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">OMAN</span>
+                </button>
+
+                <!-- Singapore -->
+                <button type="button" data-country="SG" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="07-Singapore.png" alt="Singapore Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">SG</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">SINGAPORE</span>
+                </button>
+
+                <!-- Malaysia -->
+                <button type="button" data-country="MY" class="country-card-btn p-3 rounded-xl bg-zinc-900/90 hover:bg-sky-950/50 border border-zinc-800 hover:border-teal-400 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="08-Malaysia.png" alt="Malaysia Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-white">MY</span>
+                  <span class="font-mono-kicker text-[9px] text-zinc-400">MALAYSIA</span>
+                </button>
+
+                <!-- New Zealand Button -->
+                <button type="button" data-country="NZ" class="country-card-btn p-3 rounded-xl bg-teal-950/40 hover:bg-teal-900/50 border border-teal-500/50 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all">
+                  <img src="09-New-Zealand.png" alt="New Zealand Flag" class="w-9 h-6 object-contain rounded shadow" />
+                  <span class="font-display font-black text-xs text-teal-300">NZ</span>
+                  <span class="font-mono-kicker text-[9px] text-teal-400">NEW ZEALAND</span>
+                </button>
+              </div>
+
+              <!-- Australia & India Additional Badges -->
+              <div class="pt-3 border-t border-zinc-800/80 flex flex-wrap gap-2.5">
+                <button type="button" data-country="AU" class="country-card-btn px-3 py-1.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 hover:border-teal-400 flex items-center gap-2 text-left cursor-pointer transition-all">
+                  <img src="11-Australia-location-or-work-rights.png" alt="Australia Flag" class="w-6 h-4 object-contain rounded shadow" />
+                  <span class="font-mono-kicker text-[10px] text-zinc-300">AUSTRALIA (WORK RIGHTS)</span>
+                </button>
+                <button type="button" data-country="IN" class="country-card-btn px-3 py-1.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 hover:border-teal-400 flex items-center gap-2 text-left cursor-pointer transition-all">
+                  <img src="10-India-personal-travel.png" alt="India Flag" class="w-6 h-4 object-contain rounded shadow" />
+                  <span class="font-mono-kicker text-[10px] text-zinc-300">INDIA (PERSONAL TRAVEL)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 04: CAREER TIMELINE & ETL PIPELINE (Moved below Work & Global)      -->
+    <!-- ========================================================================= -->
+    <section id="timeline" data-scene="04" data-scene-name="7-Stage Evolution" class="py-24 lg:py-28 border-t border-zinc-900 bg-[#030812]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div>
+            <p class="font-mono-kicker text-xs text-sky-400">02 / Career Evolution · Apr 2012 – Present</p>
+            <h2 class="font-display font-black text-4xl sm:text-6xl text-white mt-2">
+              MY JOURNEY. <span class="text-sky-400">MORE IMPACT.</span>
+            </h2>
+            <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
+              From systems and applications to enterprise transformation and data migration—a journey of continuous growth, international delivery, and leading quality.
+            </p>
+          </div>
+          <span class="font-mono-kicker text-[11px] text-teal-400">Select any of the 7 stages below (01 → 07)</span>
+        </div>
+
+        <!-- 7-Node Interactive Career Scrubber (Exact Match to Screenshot 2) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5" id="eraScrubber">
+          <button type="button" data-era="0" class="era-btn p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-sky-400 text-left cursor-pointer transition-all">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400 text-sky-300 font-mono-kicker text-xs font-bold flex items-center justify-center">01</span>
+              <span class="font-mono-kicker text-[8px] text-zinc-400">SYSTEMS</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] text-sky-400 mt-2">APR 2012 – DEC 2014</div>
+            <div class="font-display font-bold text-sm text-white mt-1">IT CONSULTING / SYSTEMS ANALYSIS</div>
+          </button>
+
+          <button type="button" data-era="1" class="era-btn p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-sky-400 text-left cursor-pointer transition-all">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400 text-sky-300 font-mono-kicker text-xs font-bold flex items-center justify-center">02</span>
+              <span class="font-mono-kicker text-[8px] text-zinc-400">APPLICATIONS</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] text-sky-400 mt-2">MAY 2015 – MAR 2016</div>
+            <div class="font-display font-bold text-sm text-white mt-1">TEST LEAD (ENTERPRISE APPS)</div>
+          </button>
+
+          <button type="button" data-era="2" class="era-btn p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-sky-400 text-left cursor-pointer transition-all">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400 text-sky-300 font-mono-kicker text-xs font-bold flex items-center justify-center">03</span>
+              <span class="font-mono-kicker text-[8px] text-zinc-400">APPLICATIONS</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] text-sky-400 mt-2">JUN 2016 – JAN 2018</div>
+            <div class="font-display font-bold text-sm text-white mt-1">SENIOR APPLICATIONS TEST ANALYST</div>
+          </button>
+
+          <button type="button" data-era="3" class="era-btn p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-sky-400 text-left cursor-pointer transition-all">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400 text-sky-300 font-mono-kicker text-xs font-bold flex items-center justify-center">04</span>
+              <span class="font-mono-kicker text-[8px] text-zinc-400">DIGITAL / POS</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] text-sky-400 mt-2">JAN 2018 – JAN 2019</div>
+            <div class="font-display font-bold text-sm text-white mt-1">TEST LEAD / QA ANALYST (DOC)</div>
+          </button>
+
+          <button type="button" data-era="4" class="era-btn p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-sky-400 text-left cursor-pointer transition-all">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400 text-sky-300 font-mono-kicker text-xs font-bold flex items-center justify-center">05</span>
+              <span class="font-mono-kicker text-[8px] text-zinc-400">DIGITAL</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] text-sky-400 mt-2">JAN 2019 – AUG 2019</div>
+            <div class="font-display font-bold text-sm text-white mt-1">BANKING + TELECOM TESTING</div>
+          </button>
+
+          <button type="button" data-era="5" class="era-btn p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-sky-400 text-left cursor-pointer transition-all">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400 text-sky-300 font-mono-kicker text-xs font-bold flex items-center justify-center">06</span>
+              <span class="font-mono-kicker text-[8px] text-zinc-400">ENTERPRISE</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] text-sky-400 mt-2">AUG 2019 – AUG 2025</div>
+            <div class="font-display font-bold text-sm text-white mt-1">TECHNICAL TEST LEAD (ONE NZ)</div>
+          </button>
+
+          <button type="button" data-era="6" class="era-btn p-3.5 rounded-xl bg-teal-500 text-black text-left cursor-pointer transition-all shadow-lg shadow-teal-500/20">
+            <div class="flex items-center justify-between">
+              <span class="w-7 h-7 rounded-full bg-black text-teal-300 font-mono-kicker text-xs font-bold flex items-center justify-center">07</span>
+              <span class="font-mono-kicker text-[8px] font-bold">CLOUD / DATA</span>
+            </div>
+            <div class="font-mono-kicker text-[9px] font-bold mt-2">SEP 2025 – PRESENT</div>
+            <div class="font-display font-black text-sm mt-1">TEST LEAD / DATA MIGRATION TEST LEAD</div>
+          </button>
+        </div>
+
+        <!-- Stage Detail Spotlight + "HOW I DRIVE IMPACT" 4-Step Pipeline (From Screenshot 2) -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-zinc-950/95 border border-teal-500/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+          <!-- Left: Active Role Spotlight -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="flex items-center gap-3">
+              <span id="eraNumBadge" class="font-display font-black text-5xl sm:text-6xl text-teal-400/90">07</span>
+              <div>
+                <span id="eraStatusPill" class="px-2.5 py-0.5 rounded-full bg-teal-500/20 border border-teal-400/40 font-mono-kicker text-[9px] text-teal-300 font-bold">CURRENT ROLE · SEP 2025 – PRESENT</span>
+                <h3 id="eraTitle" class="font-display font-black text-2xl sm:text-3xl text-white mt-1">
+                  TEST LEAD / <span class="text-teal-400">DATA MIGRATION TEST LEAD</span>
+                </h3>
+                <p id="eraOrgSub" class="font-mono-kicker text-[10px] text-sky-400 mt-0.5">Ministry of Business, Innovation and Employment (MBIE) · Wellington, NZ</p>
+              </div>
+            </div>
+
+            <p id="eraDesc" class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              Leading data migration assurance, payment gateway security, and quality engineering across cloud transformation programmes at MBIE—including leading a five-person QA team on NZeTA Batch Portal PayNow (QuickPay/Windcave), NZeTA Web 3DS 2.0 (Datacom Gateway), IPONZ SaaS Cloud Migration (COEXYA France), Open Banking / Dow Jones CDR, and EPBR WCAG 2.1 AA accessibility.
+            </p>
+
+            <div id="eraFocusPills" class="flex flex-wrap gap-2 pt-1 font-mono-kicker text-[10px] text-teal-300">
+              <span class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800">Quality Leadership (5-Person Team)</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800">Data Validation &amp; SQL</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800">Reconciliation &amp; Assurance</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800">Cloud Transformation</span>
+            </div>
+          </div>
+
+          <!-- Right: "HOW I DRIVE IMPACT" 4-Stage Data Migration Flow -->
+          <div class="lg:col-span-6 p-5 rounded-xl bg-[#040b16] border border-zinc-800 space-y-5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono-kicker text-[10px] text-teal-400 font-bold">HOW I DRIVE IMPACT · DATA &amp; CLOUD PIPELINE</span>
+              <span class="font-mono-kicker text-[9px] text-zinc-500">End-to-End Reconciliation</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+              <div class="p-3 rounded-xl bg-zinc-950 border border-sky-500/30">
+                <div class="text-sky-400 text-lg font-bold">01</div>
+                <div class="font-display font-bold text-xs text-white mt-1">SOURCE</div>
+                <div class="text-[11px] text-zinc-400 mt-0.5">Legacy Systems &amp; Schemas</div>
+              </div>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-sky-500/30">
+                <div class="text-sky-400 text-lg font-bold">02</div>
+                <div class="font-display font-bold text-xs text-white mt-1">EXTRACT &amp; TRANSFORM</div>
+                <div class="text-[11px] text-zinc-400 mt-0.5">Cleanse &amp; Map Rules</div>
+              </div>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-teal-500/40">
+                <div class="text-teal-400 text-lg font-bold">03</div>
+                <div class="font-display font-bold text-xs text-white mt-1">VALIDATE &amp; RECONCILE</div>
+                <div class="text-[11px] text-zinc-400 mt-0.5">SQL Quality Checks</div>
+              </div>
+              <div class="p-3 rounded-xl bg-zinc-950 border border-emerald-500/40">
+                <div class="text-emerald-400 text-lg font-bold">04</div>
+                <div class="font-display font-bold text-xs text-white mt-1">LOAD TO TARGET</div>
+                <div class="text-[11px] text-zinc-400 mt-0.5">SaaS &amp; Cloud Platform</div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-zinc-900 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono-kicker text-[9px] text-teal-300">
+              <div class="p-2 rounded bg-zinc-900/70">DATA MIGRATION</div>
+              <div class="p-2 rounded bg-zinc-900/70">DATA QUALITY</div>
+              <div class="p-2 rounded bg-zinc-900/70">VALIDATION STRATEGY</div>
+              <div class="p-2 rounded bg-zinc-900/70">CONFIDENT RELEASES</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- "WHAT STAYS CONSISTENT THROUGHOUT" 4 Pillars (From Screenshot 2) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          <div class="p-5 rounded-xl bg-zinc-950/90 border border-zinc-800/90">
+            <div class="font-display font-black text-base text-sky-400">QUALITY FIRST</div>
+            <p class="text-xs text-zinc-300 mt-1.5 leading-relaxed">Embedding quality at every step of the SDLC to deliver releases with confidence.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-zinc-950/90 border border-zinc-800/90">
+            <div class="font-display font-black text-base text-teal-400">PEOPLE LEADERSHIP</div>
+            <p class="text-xs text-zinc-300 mt-1.5 leading-relaxed">Mentoring 5-person QA teams and building a collaborative culture of ownership and trust.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-zinc-950/90 border border-zinc-800/90">
+            <div class="font-display font-black text-base text-sky-400">CONTINUOUS GROWTH</div>
+            <p class="text-xs text-zinc-300 mt-1.5 leading-relaxed">Adapting and elevating assurance practices alongside emerging cloud and AI-era complexity.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-zinc-950/90 border border-zinc-800/90">
+            <div class="font-display font-black text-base text-teal-400">BUSINESS IMPACT</div>
+            <p class="text-xs text-zinc-300 mt-1.5 leading-relaxed">Aligning quality gates and traceability with outcomes that protect citizens and enterprises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 04: ACCESSIBLE QA ARCHITECTURE & SIMULATOR (FIXES QA-03 & QA-04)    -->
+    <!-- ========================================================================= -->
+    
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 05: QA LAB — RELEASE GATE SIMULATOR & AI TEST DESIGN               -->
+    <!-- ========================================================================= -->
+    <section id="qa-lab" data-scene="05" data-scene-name="QA Lab" class="py-20 lg:py-24 border-t border-zinc-900 bg-gradient-to-b from-[#02060d] via-[#040911] to-[#02060d]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4 pb-6 border-b border-zinc-800">
+          <div>
+            <p class="font-mono-kicker text-xs text-teal-400 font-bold">Scene 05 · Hands-on Judgement &amp; Modern Quality Engineering</p>
+            <h2 class="font-display font-black text-4xl sm:text-5xl text-white mt-1">
+              QA LAB.
+            </h2>
+          </div>
+          <p class="text-zinc-400 text-xs sm:text-sm max-w-lg">
+            Experience real-world release gate simulation and explore how expert human testing augments AI-generated test scaffolding.
+          </p>
+        </div>
+
+        <!-- Simulator Part 1: Go / No-Go Interactive Scenario -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-300 font-mono-kicker text-[10px]">
+              <span>LAB EXPERIMENT 01</span>
+              <span>·</span>
+              <span>RELEASE GATE SIMULATOR</span>
+            </div>
+            
+            <h3 id="scaleStage" class="font-display font-extrabold text-2xl sm:text-3xl text-zinc-100">
+              Would you release with an unresolved critical payment defect?
+            </h3>
+            
+            <p id="scaleCopy" class="text-zinc-400 text-sm leading-relaxed">
+              Test your decision-making against Mazher's governance framework. Simulate either a clean pass or an unresolved payment gateway callback timeout.
+            </p>
+
+            <!-- Simulator Action Buttons -->
+            <div class="flex flex-wrap items-center gap-2.5 pt-1">
+              <button id="runSimBtn" type="button" class="px-4 py-2.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-black font-mono-kicker text-xs font-bold cursor-pointer transition-all shadow-md shadow-teal-500/20">
+                Simulate Pass (Go Gate)
+              </button>
+              <button id="runNoGoSimBtn" type="button" class="px-4 py-2.5 rounded-lg bg-rose-950/80 hover:bg-rose-900 border border-rose-500/50 text-rose-300 font-mono-kicker text-xs font-bold cursor-pointer transition-all">
+                Simulate P1 Defect (No-Go Gate)
+              </button>
+              <button id="resetSimBtn" type="button" class="px-3.5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 font-mono-kicker text-xs cursor-pointer transition-all">
+                Reset
+              </button>
+            </div>
+
+            <!-- Simulation Status Telemetry -->
+            <div class="p-3.5 rounded-xl bg-black border border-zinc-800 space-y-2">
+              <div class="flex items-center justify-between text-[11px] font-mono-kicker">
+                <span id="simMetricLeft" class="text-teal-400 font-bold">DEMO RTM COVERAGE: NOT RUN</span>
+                <span id="simMetricRight" class="text-zinc-400">GATE STATUS: IDLE</span>
+              </div>
+              <div class="h-2 w-full rounded-full bg-zinc-900 overflow-hidden">
+                <div id="simProgressBar" class="h-full bg-gradient-to-r from-teal-500 to-emerald-400 transition-all duration-300" style="width: 0%;"></div>
+              </div>
+              <p id="simStatusLabel" class="text-xs text-zinc-300 font-mono-kicker">Not run — Choose a scenario above to simulate gate checks</p>
+            </div>
+          </div>
+
+          <!-- Architecture SVG Nodes -->
+          <div id="evolveSvgWrapper" class="lg:col-span-7 bg-zinc-950/80 border border-zinc-800/90 rounded-2xl p-3 sm:p-6 shadow-2xl space-y-4">
+            <svg viewBox="0 0 900 540" class="w-full h-auto" role="group" aria-label="Interactive 12-Node QA and Data Migration Architecture Diagram">
+              <text x="24" y="70" dominant-baseline="central" class="evolve-layer-label">Channels</text>
+              <text x="24" y="160" dominant-baseline="central" class="evolve-layer-label">Gateways</text>
+              <text x="24" y="250" dominant-baseline="central" class="evolve-layer-label">Platforms</text>
+              <text x="24" y="340" dominant-baseline="central" class="evolve-layer-label">Data &amp; ETL</text>
+              <text x="24" y="430" dominant-baseline="central" class="evolve-layer-label">Assurance</text>
+              <text x="24" y="510" dominant-baseline="central" class="evolve-layer-label">Governance</text>
+
+              <g>
+                <path id="p-web-gw" d="M 290 90 C 350 90, 390 140, 450 140" fill="none" class="evolve-base-path" />
+                <path d="M 290 90 C 350 90, 390 140, 450 140" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.3s" repeatCount="indefinite"><mpath href="#p-web-gw"/></animateMotion></circle>
+
+                <path id="p-mob-gw" d="M 480 90 C 480 115, 450 115, 450 140" fill="none" class="evolve-base-path" />
+                <path d="M 480 90 C 480 115, 450 115, 450 140" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="1.9s" repeatCount="indefinite"><mpath href="#p-mob-gw"/></animateMotion></circle>
+
+                <path id="p-pos-gw" d="M 680 90 C 620 90, 510 140, 450 140" fill="none" class="evolve-base-path" />
+                <path d="M 680 90 C 620 90, 510 140, 450 140" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#p-pos-gw"/></animateMotion></circle>
+
+                <path id="p-gw-saas" d="M 450 180 C 390 180, 330 230, 290 230" fill="none" class="evolve-base-path" />
+                <path d="M 450 180 C 390 180, 330 230, 290 230" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#p-gw-saas"/></animateMotion></circle>
+
+                <path id="p-gw-erp" d="M 450 180 C 450 205, 480 205, 480 230" fill="none" class="evolve-base-path" />
+                <path d="M 450 180 C 450 205, 480 205, 480 230" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#p-gw-erp"/></animateMotion></circle>
+
+                <path id="p-gw-mdm" d="M 450 180 C 530 180, 620 230, 680 230" fill="none" class="evolve-base-path" />
+                <path d="M 450 180 C 530 180, 620 230, 680 230" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.5s" repeatCount="indefinite"><mpath href="#p-gw-mdm"/></animateMotion></circle>
+
+                <path id="p-saas-sql" d="M 290 270 C 350 270, 410 320, 480 320" fill="none" class="evolve-base-path" />
+                <path d="M 290 270 C 350 270, 410 320, 480 320" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.1s" repeatCount="indefinite"><mpath href="#p-saas-sql"/></animateMotion></circle>
+
+                <path id="p-erp-sql" d="M 480 270 L 480 320" fill="none" class="evolve-base-path" />
+                <path d="M 480 270 L 480 320" fill="none" class="evolve-active-path" />
+
+                <path id="p-mdm-sql" d="M 680 270 C 620 270, 540 320, 480 320" fill="none" class="evolve-base-path" />
+                <path d="M 680 270 C 620 270, 540 320, 480 320" fill="none" class="evolve-active-path" />
+
+                <path id="p-sql-auto" d="M 480 360 C 400 360, 340 410, 290 410" fill="none" class="evolve-base-path" />
+                <path d="M 480 360 C 400 360, 340 410, 290 410" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.0s" repeatCount="indefinite"><mpath href="#p-sql-auto"/></animateMotion></circle>
+
+                <path id="p-sql-a11y" d="M 480 360 L 480 410" fill="none" class="evolve-base-path" />
+                <path d="M 480 360 L 480 410" fill="none" class="evolve-active-path" />
+
+                <path id="p-sql-sec" d="M 480 360 C 560 360, 620 410, 680 410" fill="none" class="evolve-base-path" />
+                <path d="M 480 360 C 560 360, 620 410, 680 410" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#p-sql-sec"/></animateMotion></circle>
+
+                <path id="p-auto-gov" d="M 290 450 C 350 450, 420 490, 480 490" fill="none" class="evolve-base-path" />
+                <path d="M 290 450 C 350 450, 420 490, 480 490" fill="none" class="evolve-active-path" />
+
+                <path id="p-a11y-gov" d="M 480 450 L 480 490" fill="none" class="evolve-base-path" />
+                <path d="M 480 450 L 480 490" fill="none" class="evolve-active-path" />
+                <circle r="3.2" class="evolve-packet"><animateMotion dur="1.7s" repeatCount="indefinite"><mpath href="#p-a11y-gov"/></animateMotion></circle>
+
+                <path id="p-sec-gov" d="M 680 450 C 620 450, 540 490, 480 490" fill="none" class="evolve-base-path" />
+                <path d="M 680 450 C 620 450, 540 490, 480 490" fill="none" class="evolve-active-path" />
+              </g>
+
+              <!-- 12 Keyboard-Accessible Interactive Nodes (tabindex="0", role="button", aria-label) -->
+              <g class="evolve-node" tabindex="0" role="button" aria-label="Web and Portals: NZeTA Web .NET 10 and Batch Portal" data-node="NZeTA Web (.NET 10) & Batch Portal" data-detail="Functional, regression, and multilingual UI validation (English & Simplified Chinese) across NZeTA Web (.NET 10 upgrade) and External/Internal Batch Portals." transform="translate(290, 70)">
+                <rect class="chip" x="-68" y="-20" width="136" height="40" rx="20" />
+                <circle cx="-48" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">Web &amp; Portals</text>
+              </g>
+              <g class="evolve-node" tabindex="0" role="button" aria-label="iOS and Android Mobile Apps" data-node="iOS & Android Mobile Apps" data-detail="Mobile device & automation validation across iOS and Android using BrowserStack, XCUITest, Espresso, and supervised iOS configuration profiles." transform="translate(480, 70)">
+                <rect class="chip" x="-64" y="-20" width="128" height="40" rx="20" />
+                <circle cx="-44" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">iOS &amp; Android</text>
+              </g>
+              <g class="evolve-node" tabindex="0" role="button" aria-label="Visitor Centre POS Terminals" data-node="Visitor Centre POS Hardware" data-detail="Nationwide Point-of-Sale (POS) terminal hardware and payment integration testing across DOC visitor centres." transform="translate(680, 70)">
+                <rect class="chip" x="-64" y="-20" width="128" height="40" rx="20" />
+                <circle cx="-44" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">POS Terminals</text>
+              </g>
+
+              <g class="evolve-node active" tabindex="0" role="button" aria-label="QuickPay, Windcave, Datacom 3DS 2.0 and OpenAPI Gateways" data-node="QuickPay, Windcave, Datacom 3DS 2.0 & OpenAPI" data-detail="End-to-end payment and API gateway assurance: QuickPay/Windcave upfront PayNow flows, enforced Datacom 3D Secure (3DS 2.0) authentication, and Open Banking OpenAPI specifications." transform="translate(450, 160)">
+                <rect class="chip" x="-140" y="-20" width="280" height="40" rx="20" />
+                <circle cx="-118" cy="0" r="4" fill="#5eead4" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">QuickPay · Windcave · 3DS 2.0 · OpenAPI</text>
+              </g>
+
+              <g class="evolve-node" tabindex="0" role="button" aria-label="SaaS and Cloud: IPONZ SaaS Cloud and GitHub Enterprise" data-node="IPONZ SaaS Cloud & GitHub Enterprise" data-detail="Migration test leadership transitioning legacy on-premise IPONZ to SaaS Cloud (with COEXYA France) and Open Banking Standards to MBIE GitHub Enterprise Cloud." transform="translate(290, 250)">
+                <rect class="chip" x="-68" y="-20" width="136" height="40" rx="20" />
+                <circle cx="-48" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">SaaS &amp; Cloud</text>
+              </g>
+              <g class="evolve-node" tabindex="0" role="button" aria-label="ERP Systems: ERP-Based Enterprise Applications" data-node="ERP-Based Enterprise Applications" data-detail="Led QA across ERP-based enterprise application modules covering inventory, bookings, payments, and HR workflows for DOC's national Great Walks platform." transform="translate(480, 250)">
+                <rect class="chip" x="-68" y="-20" width="136" height="40" rx="20" />
+                <circle cx="-48" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">ERP Systems</text>
+              </g>
+              <g class="evolve-node" tabindex="0" role="button" aria-label="Intune MDM: Microsoft Intune Mobile Device Management" data-node="Microsoft Intune MDM / UEM" data-detail="Directed enterprise MDM migrations: NZDF BlackBerry UEM cutover to Microsoft Intune with no data loss, MSD Workspace ONE migration and BAU assurance, and NZ Police supervised iOS discovery and release governance." transform="translate(680, 250)">
+                <rect class="chip" x="-68" y="-20" width="136" height="40" rx="20" />
+                <circle cx="-48" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">Intune MDM</text>
+              </g>
+
+              <g class="evolve-node" tabindex="0" role="button" aria-label="SQL Reconciliation and ETL Validation" data-node="Source-to-Target SQL Reconciliation & ETL" data-detail="SQL-based data analysis, transformation-rule verification, source-to-target reconciliation, Data Warehouse & Power BI validation, and TEC/MoE Single Data Return (SDR) compliance." transform="translate(480, 340)">
+                <rect class="chip" x="-130" y="-20" width="260" height="40" rx="20" />
+                <circle cx="-108" cy="0" r="4" fill="#5eead4" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">SQL Reconciliation &amp; ETL Validation</text>
+              </g>
+
+              <g class="evolve-node" tabindex="0" role="button" aria-label="Cypress, Mabl and Selenium Automation" data-node="Cypress, Mabl & Selenium Automation" data-detail="End-to-end UI, component, and regression test automation using Cypress, Mabl cloud automation, Selenium WebDriver, Postman, and REST Assured." transform="translate(290, 430)">
+                <rect class="chip" x="-72" y="-20" width="144" height="40" rx="20" />
+                <circle cx="-52" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">Cypress &amp; Mabl</text>
+              </g>
+              <g class="evolve-node" tabindex="0" role="button" aria-label="WCAG 2.1 Level AA Digital Accessibility" data-node="WCAG 2.1 Level AA Digital Accessibility" data-detail="Accessibility Test Lead for MBIE's Earthquake-Prone Building Register (EPBR)—NVDA screen reader, keyboard-only navigation, focus order, colour contrast, and 200% zoom reflow." transform="translate(480, 430)">
+                <rect class="chip" x="-68" y="-20" width="136" height="40" rx="20" />
+                <circle cx="-48" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">WCAG 2.1 AA</text>
+              </g>
+              <g class="evolve-node" tabindex="0" role="button" aria-label="NZISM, RBAC, SSO and Dow Jones Security Screening" data-node="NZISM, RBAC, SSO & Dow Jones Screening" data-detail="Security and compliance testing across NZISM defence baselines, certificate authentication, RBAC, audit logging, DR/rollback, and Dow Jones Risk Screening." transform="translate(680, 430)">
+                <rect class="chip" x="-68" y="-20" width="136" height="40" rx="20" />
+                <circle cx="-48" cy="0" r="3.5" fill="#14b8a6" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">NZISM &amp; RBAC</text>
+              </g>
+
+              <g class="evolve-node" tabindex="0" role="button" aria-label="ADO RTM, QA Dashboards and Go or No-Go Release Gates" data-node="ADO Traceability, QA Dashboards & Go/No-Go Gates" data-detail="Build → User Story → Acceptance Criteria → ADO Test Case → Execution → Defect traceability, interactive Excel QA operating dashboards, and Go/No-Go release readiness assurance." transform="translate(480, 510)">
+                <rect class="chip" x="-135" y="-20" width="270" height="40" rx="20" />
+                <circle cx="-114" cy="0" r="4" fill="#5eead4" />
+                <text x="8" y="0" dominant-baseline="central" text-anchor="middle">ADO RTM · QA Dashboards · Go/No-Go</text>
+              </g>
+            </svg>
+
+            <!-- Accessible Quick-Select Button List (Companion to SVG for Screen Readers & Mobile Touch per QA-03) -->
+            <div class="pt-2 border-t border-zinc-900">
+              <div class="font-mono-kicker text-[9px] text-zinc-500 mb-2">KEYBOARD &amp; TOUCH QUICK-SELECT ARCHITECTURE NODES:</div>
+              <div id="accessibleNodeButtons" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Part 2: AI-Assisted Test Design (Tool Output vs Tester Correction) -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-zinc-800/90 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-800">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-sky-950/60 border border-sky-500/30 text-sky-300 font-mono-kicker text-[10px]">
+                <span>LAB EXPERIMENT 02</span>
+                <span>·</span>
+                <span>AI-ASSISTED TEST DESIGN BENCHMARK</span>
+              </div>
+              <h3 class="font-display font-black text-2xl text-white mt-1">
+                Tool Output vs. Senior QA Judgement
+              </h3>
+              <p class="text-xs sm:text-sm text-zinc-400">
+                Comparing GitHub Copilot / LLM generated test scaffolding against Mazher's production-hardened test suite (synthetic sample data).
+              </p>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="flex items-center gap-2 p-1 rounded-xl bg-zinc-900 border border-zinc-800">
+              <button id="aiTabCopilot" type="button" class="px-4 py-2 rounded-lg font-mono-kicker text-xs font-bold bg-zinc-800 text-teal-300 border border-zinc-700 cursor-pointer">
+                What AI Tool Generated
+              </button>
+              <button id="aiTabMazher" type="button" class="px-4 py-2 rounded-lg font-mono-kicker text-xs font-bold bg-transparent text-zinc-400 hover:text-white cursor-pointer">
+                What Mazher Corrected (QA Lead)
+              </button>
+            </div>
+          </div>
+
+          <!-- AI Tool Pane -->
+          <div id="aiPaneCopilot" class="space-y-4">
+            <div class="p-4 rounded-xl bg-black border border-zinc-800 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed">
+              <span class="text-zinc-500 block mb-2">// Copilot Generated Test Case (Scaffolded in 12s):</span>
+              <pre><code>test('Process upfront payment in NZeTA Batch Portal', async ({ page }) =&gt; {
+  // 1. Fill card details
+  await page.fill('#cardNumber', '4111222233334444');
+  await page.fill('#expiry', '12/28');
+  await page.fill('#cvv', '123');
+
+  // 2. Click submit
+  await page.click('#submitPaymentBtn');
+
+  // 3. Assert success
+  await expect(page.locator('.status-message')).toHaveText('Payment Successful');
+});</code></pre>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 text-xs text-amber-200">
+              <strong class="font-mono-kicker uppercase block mb-1">QA Lead Evaluation &amp; Gaps Identified:</strong>
+              The AI generated only a superficial "happy path" test. It completely missed (1) duplicate payment on button double-click, (2) 3DS 2.0 OTP challenge redirects, (3) gateway callback timeouts, and (4) GST invoice reconciliation. Releasing with this test would result in production transaction discrepancies!
+            </div>
+          </div>
+
+          <!-- Mazher Correction Pane -->
+          <div id="aiPaneMazher" class="hidden space-y-4">
+            <div class="p-4 rounded-xl bg-black border border-teal-500/30 text-xs font-mono text-teal-200 overflow-x-auto leading-relaxed">
+              <span class="text-teal-400 block mb-2 font-bold">// Mazher Hussain's Production Release Gate Suite:</span>
+              <pre><code>test('Upfront Payment Integration: 3DS 2.0 Challenge &amp; Idempotency Reconciliation', async ({ page, request }) =&gt; {
+  // 1. Idempotency Key Header Validation (Prevent duplicate charge on rapid clicks)
+  const idempotencyKey = crypto.randomUUID();
+  await page.setExtraHTTPHeaders({ 'X-Idempotency-Key': idempotencyKey });
+
+  // 2. Simulate 3DS 2.0 Enforced Challenge Redirect
+  await page.route('**/api/gateway/auth', route =&gt; route.fulfill({
+    status: 200, body: JSON.stringify({ action: 'CHALLENGE_REQUIRED', redirectUrl: 'https://issuer.bank/otp' })
+  }));
+
+  // 3. Network Drop Simulation during OTP Challenge &amp; Graceful Session Recovery
+  await page.context().setOffline(true);
+  await expect(page.locator('#paymentBanner')).toHaveText('Network interrupted. Retrying payment token without duplicate charge.');
+
+  // 4. Source-to-Target Ledger Reconciliation (GST Invoice Match)
+  const ledgerResponse = await request.get(`/api/reconciliation/check?key=${idempotencyKey}`);
+  expect(ledgerResponse.status()).toBe(200);
+  expect((await ledgerResponse.json()).status).toBe('RECONCILED');
+});</code></pre>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 text-xs text-emerald-200">
+              <strong class="font-mono-kicker uppercase block mb-1">Human Tester Judgement Applied:</strong>
+              Added 5 mission-critical quality engineering controls: idempotency header enforcement, 3DS challenge timeout fallback, offline network resilience, automated GST ledger reconciliation, and zero duplicate transaction guarantee.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 06: AT THE HELM (3D THREE.JS GOVERNANCE MATRIX & 5 BEATS)           -->
+    <!-- ========================================================================= -->
+    <section id="craft" data-scene="06" data-scene-name="3D Craft" class="py-24 lg:py-28 border-t border-zinc-900 bg-[#030812]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
+            <div class="relative w-full h-64 sm:h-72 rounded-2xl bg-zinc-950 border border-zinc-800/90 overflow-hidden flex items-center justify-center shadow-2xl">
+              <canvas id="craftThreeCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded bg-black/70 border border-zinc-800 font-mono-kicker text-[9px] text-zinc-400">
+                Move cursor to orbit 3D core
+              </div>
+              <div class="absolute bottom-3 left-4 font-mono-kicker text-[10px] text-teal-400">
+                3D QA GOVERNANCE MATRIX · THREE.JS WEBGL
+              </div>
+            </div>
+
+            <div>
+              <p class="font-mono-kicker text-xs text-teal-400">How Delivery Quality Happens</p>
+              <h2 class="font-display font-black text-3xl sm:text-4xl text-white mt-2">AT THE HELM.</h2>
+            </div>
+
+            <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 font-mono-kicker text-[11px] leading-relaxed text-zinc-300 space-y-1.5 shadow-xl">
+              <p class="text-teal-400 font-bold" id="terminalHeader">// ACTIVE BEAT: 01 STRATEGIZE</p>
+              <p><span class="text-teal-400">›</span> challenging ambiguous requirements before writing a test case</p>
+              <p><span class="text-teal-400">›</span> establishing Build → US → AC → Test Case → Defect traceability</p>
+              <p><span class="text-teal-400">›</span> reconciling source-to-target schemas and payment callbacks</p>
+              <p><span class="text-teal-400">›</span> gating vendor handovers with smoke &amp; acceptance criteria</p>
+              <p class="text-emerald-300"><span class="text-teal-400">›</span> <span id="terminalLiveLine">delivering evidence-based Go/No-Go release recommendations</span></p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-10 pt-2">
+            <article tabindex="0" role="button" data-beat="0" data-terminal="defining end-to-end test strategy, resource plans, and quality gates across Agile & Waterfall" class="craft-beat-card is-on">
+              <p class="font-mono-kicker text-xs text-teal-400">01 // Test Strategy &amp; Resource Planning</p>
+              <h3 class="font-display font-black text-3xl sm:text-5xl text-white mt-2">STRATEGIZE</h3>
+              <p class="mt-3 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl">
+                Quality starts long before test execution. I work with Business Analysts, Product Owners, and Solution Architects in process walkthroughs to clarify complex payment rules, Provider/Proxy/CRT workflows, GST, invoicing, and migration scope—challenging unclear requirements upfront rather than embedding assumptions into the test suite.
+              </p>
+            </article>
+
+            <article tabindex="0" role="button" data-beat="1" data-terminal="standardising ADO test cases and Build -> User Story -> AC -> Defect traceability matrices" class="craft-beat-card">
+              <p class="font-mono-kicker text-xs text-teal-400">02 // Traceability &amp; Scenario Architecture</p>
+              <h3 class="font-display font-black text-3xl sm:text-5xl text-white mt-2">ARCHITECT</h3>
+              <p class="mt-3 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl">
+                Rather than testing isolated acceptance criteria in silos, I design scenario-based functional, integration, negative, boundary, and recovery suites in Azure DevOps—linking every Build, User Story, Acceptance Criterion, Test Case, Execution result, and Defect into an auditable Requirements Traceability Matrix (RTM).
+              </p>
+            </article>
+
+            <article tabindex="0" role="button" data-beat="2" data-terminal="executing SQL source-to-target reconciliation, QuickPay/Windcave & Datacom 3DS 2.0 validation" class="craft-beat-card">
+              <p class="font-mono-kicker text-xs text-teal-400">03 // Deep Technical Validation &amp; Automation</p>
+              <h3 class="font-display font-black text-3xl sm:text-5xl text-white mt-2">VALIDATE</h3>
+              <p class="mt-3 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl">
+                Combining team leadership with hands-on execution: driving SQL source-to-target data reconciliation, validating multi-hop payment journeys (Batch Portal → Batch API → QuickPay → Windcave &amp; Datacom 3DS 2.0), auditing WCAG 2.1 AA accessibility with NVDA, and building repeatable E2E automation in Cypress, Mabl, and Selenium.
+              </p>
+            </article>
+
+            <article tabindex="0" role="button" data-beat="3" data-terminal="coordinating a 5-person QA team, international vendors (COEXYA, US ERP), and Excel QA dashboards" class="craft-beat-card">
+              <p class="font-mono-kicker text-xs text-teal-400">04 // Multi-Vendor &amp; 5-Person Team Governance</p>
+              <h3 class="font-display font-black text-3xl sm:text-5xl text-white mt-2">GOVERN</h3>
+              <p class="mt-3 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl">
+                Leading day-to-day delivery across a five-person QA team and international vendors (COEXYA in France, US development partners). I build interactive QA operating dashboards that separate build-level readiness from future scope, giving executives clear visibility of planned vs. executed cases, P1/P2 defects, and residual risk.
+              </p>
+            </article>
+
+            <article tabindex="0" role="button" data-beat="4" data-terminal="enforcing vendor release smoke gates and delivering confident production cutovers" class="craft-beat-card">
+              <p class="font-mono-kicker text-xs text-teal-400">05 // Release Readiness &amp; Cutover Assurance</p>
+              <h3 class="font-display font-black text-3xl sm:text-5xl text-white mt-2">RELEASE</h3>
+              <p class="mt-3 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl">
+                Establishing formal vendor-to-agency release handover gates, smoke-test acceptance checks, deployment checklists, and rollback plans—supporting confident Go/No-Go decisions and seamless production cutovers across national platforms, defence fleets, and banking portals.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 07: ACROSS SECTORS (5 INDUSTRY VERTICALS — C02 SEPARATED)           -->
+    <!-- ========================================================================= -->
+    
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 07: ACROSS SECTORS                                                 -->
+    <!-- ========================================================================= -->
+    <section id="domains" data-scene="07" data-scene-name="Sectors" class="py-24 lg:py-28 border-t border-zinc-900 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-5 space-y-5">
+            <p class="font-mono-kicker text-xs text-teal-400">5+ Industry Verticals</p>
+            <h2 class="font-display font-black text-4xl sm:text-6xl text-white">
+              ACROSS<br />SECTORS.
+            </h2>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              14+ years in IT and QA delivery across government ministries, national defence and policing environments, retail banking, higher education, and international enterprise programmes.
+            </p>
+
+            <div class="space-y-2 pt-2" id="domainList">
+              <button type="button" data-dom="0" class="dom-btn w-full text-left p-3.5 rounded-xl bg-teal-500/15 border border-teal-400/50 flex items-center justify-between cursor-pointer transition-all">
+                <span class="font-display font-bold text-base text-white">01 · Digital Payments &amp; 3DS 2.0 Security</span>
+                <span class="font-mono-kicker text-xs text-teal-300">MBIE / INZ</span>
+              </button>
+              <button type="button" data-dom="1" class="dom-btn w-full text-left p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 flex items-center justify-between cursor-pointer transition-all">
+                <span class="font-display font-bold text-base text-zinc-300">02 · Cloud, SaaS &amp; Open Banking Migration</span>
+                <span class="font-mono-kicker text-xs text-zinc-500">IPONZ / CDR</span>
+              </button>
+              <button type="button" data-dom="2" class="dom-btn w-full text-left p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 flex items-center justify-between cursor-pointer transition-all">
+                <span class="font-display font-bold text-base text-zinc-300">03 · Defence, MSD &amp; Policing Mobility</span>
+                <span class="font-mono-kicker text-xs text-zinc-500">NZDF / MSD / Police</span>
+              </button>
+              <button type="button" data-dom="3" class="dom-btn w-full text-left p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 flex items-center justify-between cursor-pointer transition-all">
+                <span class="font-display font-bold text-base text-zinc-300">04 · National ERP, POS &amp; Digital Lending</span>
+                <span class="font-mono-kicker text-xs text-zinc-500">DOC / Co-op Bank</span>
+              </button>
+              <button type="button" data-dom="4" class="dom-btn w-full text-left p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-zinc-700 flex items-center justify-between cursor-pointer transition-all">
+                <span class="font-display font-bold text-base text-zinc-300">05 · Accessibility (WCAG 2.1 AA) &amp; Statutory Data</span>
+                <span class="font-mono-kicker text-xs text-zinc-500">EPBR / VUW SDR</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl">
+              <img
+                id="domBackdropImg"
+                src="dom-backdrop.jpg"
+                alt="Wellington Enterprise Data & Cloud Architecture"
+                class="w-full h-80 sm:h-[420px] object-cover opacity-65 transition-all duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent"></div>
+              <div class="absolute bottom-0 inset-x-0 p-6 sm:p-8 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span id="domCount" class="font-mono-kicker text-xs text-teal-400 font-bold">DOMAIN 01 / 05</span>
+                  <span id="domOrgBadge" class="px-3 py-1 rounded-full bg-teal-500/20 border border-teal-400/40 font-mono-kicker text-[10px] text-teal-200">MBIE · Immigration New Zealand</span>
+                </div>
+                <h3 id="domTitle" class="font-display font-black text-3xl sm:text-4xl text-white">
+                  DIGITAL PAYMENTS &amp; 3DS 2.0 SECURITY
+                </h3>
+                <p id="domDesc" class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+                  Leading a 5-person QA team on the NZeTA Batch Portal PayNow upfront payment integration (QuickPay/Windcave) and directing QA assurance for the Datacom Payment Gateway transition to enforced 3D Secure (3DS 2.0) authentication across English and Simplified Chinese user journeys.
+                </p>
+                <div id="domTags" class="flex flex-wrap gap-2 pt-1 font-mono-kicker text-[10px] text-teal-300">
+                  <span class="px-2.5 py-1 rounded bg-zinc-900/90 border border-zinc-700">QuickPay &amp; Windcave</span>
+                  <span class="px-2.5 py-1 rounded bg-zinc-900/90 border border-zinc-700">Datacom 3DS 2.0</span>
+                  <span class="px-2.5 py-1 rounded bg-zinc-900/90 border border-zinc-700">5-Person QA Team Lead</span>
+                  <span class="px-2.5 py-1 rounded bg-zinc-900/90 border border-zinc-700">ADO Traceability &amp; Dashboards</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 08: ENDORSEMENTS (C04 REFINED) & CONTACT                            -->
+    <!-- ========================================================================= -->
+    
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 08: CONTACT & RECRUITER SIGN-OFF                                    -->
+    <!-- ========================================================================= -->
+    <section id="contact" data-scene="08" data-scene-name="Contact" class="py-24 lg:py-28 border-t border-zinc-900 bg-gradient-to-b from-[#02060d] to-[#040a12]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-20">
+        <!-- Professional Endorsements Summary (Fixes C04: No unverified verbatim quotation marks) -->
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <p class="font-mono-kicker text-xs text-teal-400">Professional Endorsements · References Available on Request</p>
+              <h3 class="font-display font-black text-3xl sm:text-4xl text-white mt-2">RECOGNISED BY PROGRAMME LEADERS.</h3>
+            </div>
+            <span class="font-mono-kicker text-[10px] text-zinc-400">Verified LinkedIn &amp; Delivery Endorsements</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800/90 flex flex-col justify-between">
+              <p class="text-sm text-zinc-300 leading-relaxed">
+                Endorsed for structured test governance, proactive risk identification, and calm release leadership when managing complex multi-vendor government technology deliveries.
+              </p>
+              <div class="mt-5 pt-4 border-t border-zinc-900">
+                <div class="font-bold text-white text-sm">Sue Familton</div>
+                <div class="font-mono-kicker text-[10px] text-teal-400 mt-0.5">Senior Project &amp; Programme Manager · Direct Manager</div>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800/90 flex flex-col justify-between">
+              <p class="text-sm text-zinc-300 leading-relaxed">
+                Recognised for bridging DOC National Office and the US development partner across ERP modules, online booking workflows, and nationwide visitor centre POS hardware for the Great Walks launch.
+              </p>
+              <div class="mt-5 pt-4 border-t border-zinc-900">
+                <div class="font-bold text-white text-sm">Sara Slattery &amp; Gareth Miles</div>
+                <div class="font-mono-kicker text-[10px] text-teal-400 mt-0.5">US eDirect / Great Walks &amp; Project Delivery</div>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800/90 flex flex-col justify-between">
+              <p class="text-sm text-zinc-300 leading-relaxed">
+                Commended for collaborative Agile QA leadership, SQL backend verification, and statutory Single Data Return (SDR) compliance assurance across Victoria University of Wellington’s enterprise systems.
+              </p>
+              <div class="mt-5 pt-4 border-t border-zinc-900">
+                <div class="font-bold text-white text-sm">Des Kelly &amp; Jude Perez</div>
+                <div class="font-mono-kicker text-[10px] text-teal-400 mt-0.5">Agile Coach &amp; Senior Test Analyst · VUW</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giant Contact CTA -->
+        <div class="pt-8 border-t border-zinc-900 flex flex-col items-start">
+          <p class="font-mono-kicker text-xs text-teal-400">Next Delivery Challenge</p>
+          <h2 class="font-display font-black text-5xl sm:text-7xl lg:text-8xl text-white mt-4 leading-none">
+            WHAT SHOULD WE<br />
+            DELIVER <span class="strike-word">NEXT</span> <span class="text-teal-400">NOW</span>?
+          </h2>
+
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="mailto:mazher.khaja313@outlook.co.nz?subject=Senior%20QA%20%2F%20Data%20Migration%20Leadership%20Enquiry" class="px-7 py-4 rounded-full bg-teal-500 hover:bg-teal-400 text-black font-mono-kicker text-xs sm:text-sm font-bold tracking-wider transition-all shadow-xl">
+              Email Me: mazher.khaja313@outlook.co.nz ✉
+            </a>
+            <button type="button" class="download-cv-trigger cursor-pointer px-6 py-4 rounded-full bg-white hover:bg-sky-300 text-black font-mono-kicker text-xs sm:text-sm font-bold tracking-wider transition-all shadow-xl">
+              Download Executive CV (PDF) ↓
+            </button>
+            <button id="footerCopyEmailBtn" type="button" data-email="mazher.khaja313@outlook.co.nz" class="px-6 py-4 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 text-white font-mono-kicker text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer">
+              <span id="footerEmailLabel">Copy Email Address</span>
+            </button>
+            <button id="footerCopyPhoneBtn" type="button" data-phone="+64 211 842 439" class="px-6 py-4 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 text-white font-mono-kicker text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer">
+              <span id="footerPhoneLabel">+64 211 842 439</span>
+            </button>
+            <a href="https://www.linkedin.com/in/kmazherhussain" target="_blank" rel="noopener noreferrer" class="px-6 py-4 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-teal-400 text-teal-300 font-mono-kicker text-xs sm:text-sm font-bold tracking-wider transition-all">
+              LinkedIn Profile ↗
+            </a>
+          </div>
+
+          <footer class="w-full mt-20 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-zinc-500">
+            <div>
+              <p class="font-display font-black text-xl text-white">MAZHER HUSSAIN</p>
+              <p class="font-mono-kicker text-[10px] text-zinc-400 mt-1">14+ YEARS IN IT &amp; QA DELIVERY · TEST LEAD · DATA MIGRATION &amp; RELEASE ASSURANCE</p>
+            </div>
+            <div class="font-mono-kicker text-[10px] text-zinc-400">
+              WELLINGTON, NEW ZEALAND &nbsp;·&nbsp; NZ CITIZEN &nbsp;·&nbsp; NZSIS CONFIDENTIAL (*CV) &nbsp;·&nbsp; NZ POLICE VETTED
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  
+
+  </main>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE MODAL 1: CASE STUDY ARCHITECTURE & RTM DEEP-DIVE              -->
+  <!-- ========================================================================= -->
+  <div id="caseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-3xl rounded-2xl bg-zinc-950 border border-teal-500/40 p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto space-y-5">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p id="modalOrg" class="font-mono-kicker text-xs text-teal-400"></p>
+          <h3 id="modalTitle" class="font-display font-black text-2xl sm:text-3xl text-white mt-1"></h3>
+        </div>
+        <button id="closeCaseModalBtn" type="button" aria-label="Close case study details" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 font-mono-kicker text-xs text-zinc-300 cursor-pointer">
+          ESC ✕
+        </button>
+      </div>
+
+      <div class="p-4 rounded-xl bg-black border border-zinc-800">
+        <div class="font-mono-kicker text-[10px] text-teal-400 font-bold">END-TO-END SYSTEM &amp; INTEGRATION FLOW</div>
+        <p id="modalFlow" class="font-mono-kicker text-xs text-zinc-200 mt-2 leading-relaxed"></p>
+      </div>
+
+      <div class="space-y-2">
+        <div class="font-mono-kicker text-[10px] text-teal-400 font-bold">GOVERNANCE, TRACEABILITY &amp; EXECUTION EVIDENCE</div>
+        <ul id="modalBullets" class="space-y-2 text-sm text-zinc-300 list-disc pl-5 leading-relaxed"></ul>
+      </div>
+
+      <div class="p-4 rounded-xl bg-teal-950/25 border border-teal-500/30">
+        <div class="font-mono-kicker text-[10px] text-teal-300 font-bold">VERIFIED DELIVERY OUTCOME</div>
+        <p id="modalOutcome" class="text-sm text-zinc-100 mt-1 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE MODAL 2: ACCESSIBLE COMMAND PALETTE (FIXES QA-01 & QA-02)     -->
+  <!-- ========================================================================= -->
+  <div id="cmdPaletteModal" role="dialog" aria-modal="true" aria-label="Quick Search Command Palette" class="fixed inset-0 z-50 hidden items-start justify-center bg-black/85 backdrop-blur-md pt-20 p-4">
+    <div class="w-full max-w-xl rounded-2xl bg-zinc-950 border border-zinc-700 shadow-2xl overflow-hidden">
+      <div class="p-4 border-b border-zinc-800 flex items-center gap-3">
+        <span class="font-mono-kicker text-xs text-teal-400">⌘K</span>
+        <input id="cmdSearchInput" type="text" role="combobox" aria-expanded="true" aria-controls="cmdResultsList" aria-autocomplete="list" placeholder="Search Datacom, IPONZ, PayNow, Intune, countries, or actions (↑/↓ + Enter)..." class="w-full bg-transparent text-sm text-white placeholder-zinc-500 focus:outline-none" />
+        <button id="closeCmdPaletteBtn" type="button" class="px-2.5 py-1 rounded bg-zinc-900 text-zinc-400 hover:text-white font-mono-kicker text-[10px] cursor-pointer">ESC</button>
+      </div>
+      <div class="px-4 py-1.5 bg-zinc-900/60 border-b border-zinc-900 flex items-center justify-between font-mono-kicker text-[9px] text-zinc-400">
+        <span>Use ↑ / ↓ arrows to navigate</span>
+        <span>Press Enter ↵ to open</span>
+      </div>
+      <div id="cmdResultsList" role="listbox" class="max-h-80 overflow-y-auto divide-y divide-zinc-900 p-2">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE MODAL 3: EXECUTIVE MASTER CV PREVIEW & DOWNLOAD (REC-01)      -->
+  <!-- ========================================================================= -->
+  <div id="cvPreviewModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-3xl rounded-2xl bg-zinc-950 border border-teal-500/40 p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto space-y-5">
+      <div class="flex items-start justify-between gap-4 border-b border-zinc-800 pb-4">
+        <div>
+          <p class="font-mono-kicker text-xs text-teal-400">Executive Master CV · Public Summary &amp; Direct Download</p>
+          <h3 id="cvModalTitle" class="font-display font-black text-2xl sm:text-3xl text-white mt-1">MAZHER HUSSAIN — EXECUTIVE CV</h3>
+          <p class="font-mono-kicker text-[10px] text-zinc-400 mt-1">Wellington, New Zealand · +64 211 842 439 · mazher.khaja313@outlook.co.nz</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="directPdfDownloadBtn" type="button" class="px-3.5 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-black font-mono-kicker text-xs font-bold cursor-pointer">
+            Download PDF File ↓
+          </button>
+          <button id="printCvSummaryBtn" type="button" class="px-3 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 font-mono-kicker text-xs text-zinc-200 cursor-pointer">
+            Print / Save PDF
+          </button>
+          <button id="closeCvModalBtn" type="button" aria-label="Close CV preview" class="px-3 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 font-mono-kicker text-xs text-zinc-300 cursor-pointer">
+            ESC ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div class="p-3.5 rounded-xl bg-black border border-zinc-800">
+          <div class="font-mono-kicker text-[10px] text-sky-400 font-bold">EXPERIENCE</div>
+          <div class="text-white font-bold mt-1">14+ Years in IT &amp; QA Delivery</div>
+          <div class="text-zinc-400 mt-0.5">5-Person QA Team Leadership · 9 Countries</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-black border border-zinc-800">
+          <div class="font-mono-kicker text-[10px] text-teal-400 font-bold">CLEARANCES &amp; RIGHTS</div>
+          <div class="text-white font-bold mt-1">NZ Citizen (NZ &amp; AU Rights)</div>
+          <div class="text-zinc-400 mt-0.5">NZSIS Confidential (*CV) · NZ Police Vetted</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-black border border-zinc-800">
+          <div class="font-mono-kicker text-[10px] text-sky-400 font-bold">AVAILABILITY</div>
+          <div class="text-white font-bold mt-1">10 Days' Notice</div>
+          <div class="text-zinc-400 mt-0.5">Wellington, NZ · Open to Relocation</div>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+        <div class="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800">
+          <div class="font-mono-kicker text-[10px] text-teal-400 font-bold">SEP 2025 – PRESENT · MBIE (WELLINGTON, NZ)</div>
+          <div class="font-bold text-white mt-0.5">Test Lead / Data Migration &amp; Digital Test Lead</div>
+          <p class="mt-1 text-zinc-300">Leading QA across 6 concurrent programmes: NZeTA Batch Portal PayNow (leading a 5-person QA team across QuickPay/Windcave), NZeTA Web 3DS 2.0 (Datacom Gateway), IPONZ SaaS Cloud Migration (COEXYA France), Open Banking Standards &amp; Dow Jones CDR, EPBR WCAG 2.1 AA accessibility, and .NET 10 / mobile releases.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800">
+          <div class="font-mono-kicker text-[10px] text-sky-400 font-bold">AUG 2019 – AUG 2025 · ONE NZ (NZDF, MSD &amp; NZ POLICE)</div>
+          <div class="font-bold text-white mt-0.5">Technical Test Lead / Release Manager</div>
+          <p class="mt-1 text-zinc-300">Directed 3 distinct enterprise mobility workstreams: (1) NZDF BlackBerry UEM cutover to Microsoft Intune with no data loss and full NZISM compliance; (2) MSD Workspace ONE to Intune migration and multi-stream BAU assurance; and (3) NZ Police supervised iOS technical discovery and formal release governance.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800">
+          <div class="font-mono-kicker text-[10px] text-teal-400 font-bold">2012 – 2019 · CO-OP BANK · DOC GREAT WALKS · VUW · GLOBAL IT</div>
+          <div class="font-bold text-white mt-0.5">Senior Test Analyst / Acting Scrum Master / Test Lead / Systems Analyst</div>
+          <p class="mt-1 text-zinc-300">The Co-operative Bank (2019: Cypress/Selenium &amp; Acting Scrum Master), Department of Conservation (2018–2019: Great Walks ERP &amp; nationwide POS launch with the NZ Prime Minister), Victoria University of Wellington (2016–2018: SDR statutory SQL validation), and International IT Consulting across Saudi Arabia, USA, UAE, Egypt, Qatar, Oman, Singapore &amp; Malaysia (2012–2016).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
